@@ -1,9 +1,9 @@
 //反转链表
 package main
 
-type listNode struct {
+type ListNode struct {
 	val  int
-	next *ListNode
+	Next *ListNode
 }
 
 func reverseList(head *ListNode) *ListNode {
