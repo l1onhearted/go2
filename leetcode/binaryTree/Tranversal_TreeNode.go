@@ -53,9 +53,9 @@ func traversal(node *TreeNode) { //后序
 }
 
 
-func invertTree(root *TreeNode) *TreeNode {  //二叉树反转
-    var tran func(node *TreeNode)
-    tran = func(node *TreeNode){
+func invertTree(root *TreeNode) *TreeNode {  
+    // var tran func(node *TreeNode)
+    tran := func(node *TreeNode){
         if node==nil{
             return
         }

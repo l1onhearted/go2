@@ -160,13 +160,36 @@ func rightSideView(root *TreeNode) [][]int { //二叉树层序遍历
 			if node.Left != nil {
 				queue.PushBack(node.Left)
 			}
-			if node.Left==nil{
+			if node.Left == nil {
 				tmp = append(tmp, node.Val) //将值加入本层切片
 			}
-			
+
 		}
 		res = append(res, tmp)
 		tmp = []int{}
 	}
 	return res
+}
+
+func maxDepth(root *TreeNode) int { //二叉树最大深度
+	if root == nil {
+		return 0
+	}
+	queue := []*TreeNode{root}
+	max := 0
+	for len(queue) > 0 {
+		len := len(queue) // 这里一定要使用固定大小size，队列大小一直变化
+		for i := 0; i < len; i++ {
+			node := queue[0]
+			queue = queue[1:]
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+		}
+		max += 1
+	}
+	return max
 }
