@@ -1,4 +1,4 @@
-package main
+package h1
 
 import (
 	"fmt"
@@ -9,14 +9,18 @@ import (
 
 func main() {
 	res, err := http.Get("http://www.baidu.com")
-	checkError(err)
+	CheckError(err)
 	data, err := ioutil.ReadAll(res.Body)
-	checkError(err)
+	CheckError(err)
 	fmt.Printf("Got: %q", string(data))
 }
 
-func checkError(err error) {
+func CheckError(err error) {
 	if err != nil {
 		log.Fatalf("Get : %v", err)
 	}
+}
+
+func test() {
+	log.Panicln("done")
 }
