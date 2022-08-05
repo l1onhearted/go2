@@ -1,0 +1,1 @@
+#define IS_BIT_SET(BIT_MAP, bit) (((BIT_MAP[bit / sizeof(unsigned long)]) >> (bit % sizeof(unsigned long))) & 0x1)

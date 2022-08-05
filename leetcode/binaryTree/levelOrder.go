@@ -193,3 +193,38 @@ func maxDepth(root *TreeNode) int { //二叉树最大深度
 	}
 	return max
 }
+
+func isSymmetric(root *TreeNode) bool {
+	if root == nil {
+		return false
+	}
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		len1 := len(queue)
+		t := []int{}
+		for i := 0; i < len1; i++ {
+			node := queue[0]
+			queue = queue[1:]
+			if node == nil {
+				t = append(t, 0)
+				continue
+			} else {
+				t = append(t, node.Val)
+			}
+			if node.Left != nil || node.Right != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil || node.Left != nil {
+				queue = append(queue, node.Right)
+			}
+		}
+		for i, j := 0, len(t)-1; i < j; {
+			if t[i] != t[j] {
+				return false
+			}
+			i++
+			j--
+		}
+	}
+	return true
+}
